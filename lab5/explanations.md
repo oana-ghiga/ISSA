@@ -1,4 +1,4 @@
-These three files constitute a simple client-server architecture for sending and receiving Python objects over a network using sockets. Let's break down how each component works:
+
 
 1. **object_socket.py**:
    - This file contains two classes, `ObjectSenderSocket` and `ObjectReceiverSocket`, responsible for sending and receiving Python objects respectively.
@@ -28,4 +28,4 @@ These three files constitute a simple client-server architecture for sending and
    - Breaks out of the loop when no more frames are received or when the user presses the 'q' key.
    - Destroys any active OpenCV windows.
 
-In summary, the producer (`example_producer.py`) reads frames from a video file, sends them over the network using a sender socket, while the consumer (`example_consumer.py`) receives these frames and displays them in real-time using OpenCV. The object socket classes (`ObjectSenderSocket` and `ObjectReceiverSocket`) handle the networking aspects, enabling communication between the producer and consumer processes.
+soooo the producer (`example_producer.py`) reads frames from a video file, sends them over the network using a sender socket, while the consumer (`example_consumer.py`) receives these frames and displays them in real-time using OpenCV. The object socket classes (`ObjectSenderSocket` and `ObjectReceiverSocket`) handle the networking aspects, enabling communication between the producer and consumer processes.

@@ -1,4 +1,4 @@
-Sure, let's delve into each method of the `RoadDetector` class and explore how they work in detail:
+
 
 1. **`__init__(self, video_path)`**: This method is the constructor for the `RoadDetector` class. It initializes the `cam` attribute by opening the video file specified by `video_path` using OpenCV's `VideoCapture` function. It also initializes the `pts` attribute to `None`, which will later store the coordinates of the points defining the road region.
 
@@ -29,5 +29,3 @@ Sure, let's delve into each method of the `RoadDetector` class and explore how t
 14. **`draw_lane_lines(self, frame, left_line, right_line)`**: This method draws the detected lane lines on the original frame. It transforms the lane lines from the top-down view back to the original perspective using the inverse perspective transform matrix. Then, it draws the lines on the frame.
 
 15. **`run(self)`**: This method is the main function that runs the lane detection algorithm. It reads frames from the video file using the `cam` object and applies each step of the lane detection pipeline sequentially. It displays intermediate results and the final lane markings on the original frame in real-time.
-
-These detailed explanations should give you a thorough understanding of how each method works within the `RoadDetector` class.

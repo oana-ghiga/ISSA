@@ -12,7 +12,6 @@ class ObjectSocketParams:
     DEFAULT_TIMEOUT_S = 1
     CHUNK_SIZE_BYTES = 1024
 
-
 class ObjectSenderSocket:
     """Class for sending Python objects over a TCP socket."""
     ip: str
@@ -27,12 +26,11 @@ class ObjectSenderSocket:
                  print_when_sending_object: bool = False):
         """
               Initialize ObjectSenderSocket.
-
               Parameters:
                   ip (str): IP address to bind the socket.
                   port (int): Port number to bind the socket.
-                  print_when_awaiting_receiver (bool): Whether to print messages while awaiting receiver connection.
-                  print_when_sending_object (bool): Whether to print messages while sending objects.
+                  print_when_awaiting_receiver (bool): Optional argument.Whether to print messages while awaiting receiver connection. Defaults to False.
+                  print_when_sending_object (bool): Optional argument. Whether to print messages while sending objects. Defaults to False.
               """
         self.ip = ip
         self.port = port
@@ -49,9 +47,7 @@ class ObjectSenderSocket:
     def await_receiver_conection(self):
         """
                Await receiver connection.
-
                Waits for a receiver to connect to the sender socket and establishes a connection.
-
                Prints status messages based on the value of print_when_awaiting_receiver parameter.
                """
 
@@ -72,7 +68,6 @@ class ObjectSenderSocket:
     def is_connected(self) -> bool:
         """
                 Check if the socket is connected.
-
                 Returns:
                     bool: True if the socket is connected, False otherwise.
                 """
@@ -81,9 +76,7 @@ class ObjectSenderSocket:
     def send_object(self, obj: Any):
         """
                 Send a Python object over the socket.
-
                 Serializes the object using pickle, sends the object size followed by the serialized data.
-
                 Parameters:
                     obj (Any): Python object to send.
                 """
@@ -111,12 +104,12 @@ class ObjectReceiverSocket:
                  print_when_receiving_object: bool = False):
         """
                Initialize ObjectReceiverSocket.
-
                Parameters:
                    ip (str): IP address of the sender.
                    port (int): Port number of the sender.
-                   print_when_connecting_to_sender (bool): Whether to print messages while connecting to the sender.
-                   print_when_receiving_object (bool): Whether to print messages while receiving objects.
+                   print_when_connecting_to_sender (bool): Optional variable, whether to print messages while connecting to the sender.
+                   print_when_receiving_object (bool): Optional variable, whether to print messages while receiving objects.
+
                """
         self.ip = ip
         self.port = port
@@ -128,9 +121,7 @@ class ObjectReceiverSocket:
     def connect_to_sender(self):
         """
                 Connect to the sender.
-
                 Establishes a connection to the sender socket.
-
                 Prints status messages based on the value of print_when_connecting_to_sender parameter.
                 """
 
@@ -151,7 +142,6 @@ class ObjectReceiverSocket:
     def is_connected(self) -> bool:
         """
                Check if the socket is connected.
-
                Returns:
                    bool: True if the socket is connected, False otherwise.
                """

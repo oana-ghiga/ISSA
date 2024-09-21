@@ -109,6 +109,7 @@ class RoadDetector:
                Returns:
                - blurred_frame (numpy.ndarray): The blurred frame.
                """
+
         return cv2.blur(frame, ksize)
 
     def apply_sobel(self, frame, ksize):
@@ -136,7 +137,7 @@ class RoadDetector:
 
     def binarize_frame(self, frame, threshold):
         """
-               Binarizes a frame based on a threshold.
+               Binarizes a frame based on a threshold. A threshold value is used to separate the pixels of the frame into two groups: pixels with intensity values below the threshold are set to 0, and pixels with intensity values above the threshold are set to 255.
 
                Parameters:
                - frame (numpy.ndarray): The input frame.
@@ -167,7 +168,7 @@ class RoadDetector:
         frame[:, int(width * 0.97):] = 0
         frame[int(height * 0.97):, :] = 0
         _, binary_frame = cv2.threshold(frame, threshold, 255, cv2.THRESH_BINARY)
-        kernel = np.ones((5, 5), np.uint8)
+        kernel = np.ones((5, 5), np.uint8) # Kernel for morphological opening operation
         binary_frame = cv2.morphologyEx(binary_frame, cv2.MORPH_OPEN, kernel)
         left_half = binary_frame[:, :width // 2]
         right_half = binary_frame[:, width // 2:]
